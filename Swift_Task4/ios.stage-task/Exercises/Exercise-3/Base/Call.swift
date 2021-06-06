@@ -6,7 +6,7 @@ struct Call {
     let id: CallID
     let incomingUser: User
     let outgoingUser: User
-    let status: CallStatus
+    var status: CallStatus
 }
 
 enum CallEndReason: Equatable {
@@ -21,4 +21,7 @@ enum CallStatus: Equatable {
     case talk
     case ended(reason: CallEndReason)
 }
+
+extension CallStatus: Hashable {}
+extension Call: Hashable {}
 
